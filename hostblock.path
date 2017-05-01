@@ -1,0 +1,9 @@
+[Unit]
+Description=Merging /etc/hosts.d/* into a new /etc/hosts file
+
+[Path]
+PathChanged=/etc/hosts.d/
+
+[Install]
+WantedBy=multi-user.target
+WantedBy=system-update.target

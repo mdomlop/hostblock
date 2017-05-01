@@ -1,0 +1,9 @@
+[Unit]
+Description=Build a new /etc/hosts file
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/bin/hostblock.sh adblock merge
+ExecStop=/usr/bin/hostblock.sh adunblock merge
+ExecReload=/usr/bin/hostblock.sh merge
