@@ -1,0 +1,12 @@
+[Unit]
+Description=Periodical launch hostblock.service
+
+[Timer]
+# Tiempo a esperar tras el inicio antes de iniciar el servicio:
+OnBootSec=15min
+# Tiempo entre ejecuciones:
+OnUnitActiveSec=480min
+Unit=hostblock.service
+
+[Install]
+WantedBy=timers.target
