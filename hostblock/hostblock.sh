@@ -9,18 +9,27 @@ syshost='/etc/hosts'
 
 merge() {
     echo "Merging "$blockdir"/*... "
-    cat "$blockdir"/* > "$syshost"
+    cat "$blockdir"/*.{conf,block}  > "$syshost"
 }
 
-adblock() {
-    echo "Blocking adds... "
+update() {
     # Grepping only 0.0.0.0 starting lines for security reasons.
     curl -s "$adblock" | grep ^'0.0.0.0 ' > "$blockdir"/adblock.block
 }
 
+block() {
+    echo "Blocking adds... "
+    for i in "$blockdir"/*.unblock
+    do
+        mv "$f" "${f%.unblock}.block"
+    done
+
 adunblock() {
     echo "Unblocking adds... "
-    rm "$blockdir"/*.block
+    for i in "$blockdir"/*.block
+    do
+        mv "$f" "${f%.block}.unblock"
+    done
 }
 
 if [ ! -d "$blockdir" ]
