@@ -21,7 +21,7 @@ block() {
     echo "Blocking adds... "
     for i in "$blockdir"/*.unblock
     do
-        mv "$f" "${f%.unblock}.block"
+        mv "$f" "${f%.unblock}.block" 2> /dev/null
     done
 }
 
@@ -29,7 +29,7 @@ unblock() {
     echo "Unblocking adds... "
     for i in "$blockdir"/*.block
     do
-        mv "$f" "${f%.block}.unblock"
+        mv "$f" "${f%.block}.unblock" 2> /dev/null
     done
 }
 
