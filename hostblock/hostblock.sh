@@ -36,8 +36,8 @@ unblock() {
 if [ ! -d "$blockdir" ]
 then
     mkdir -p "$blockdir" || exit 1
-    echo "WARNING: Moving $syshost to $dir/hosts.original"
-    cat "$syshost" > "$dir/hosts.original"
+    echo "WARNING: Moving $syshost to $dir/hosts.conf"
+    cat "$syshost" > "$dir/hosts.conf"
 fi
 
 for i in "$@"
