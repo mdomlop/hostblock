@@ -23,8 +23,9 @@ block() {
     do
         mv "$f" "${f%.unblock}.block"
     done
+}
 
-adunblock() {
+unblock() {
     echo "Unblocking adds... "
     for i in "$blockdir"/*.block
     do

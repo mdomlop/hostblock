@@ -5,5 +5,5 @@ Description=Build a new /etc/hosts file
 Type=oneshot
 RemainAfterExit=yes
 ExecStart=/usr/bin/hostblock update block merge
-ExecStop=/usr/bin/hostblock adunblock merge
+ExecStop=/usr/bin/hostblock unblock merge
 ExecReload=/usr/bin/hostblock merge
