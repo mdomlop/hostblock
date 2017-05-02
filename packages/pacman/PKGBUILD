@@ -27,5 +27,4 @@ pkgver() {
 package() {
     cd "${srcdir}/${_gitname}"
     make DESTDIR=${pkgdir} install
-    systemctl daemon-reload
 }
