@@ -37,7 +37,7 @@ if [ ! -d "$blockdir" ]
 then
     mkdir -p "$blockdir" || exit 1
     echo "WARNING: Moving $syshost to $dir/hosts.conf"
-    cat "$syshost" > "$dir/hosts.conf"
+    cat "$syshost" > "$blockdir/hosts.conf"
 fi
 
 for i in "$@"
