@@ -13,12 +13,13 @@ merge() {
 }
 
 update() {
+    echo "Updating blocked hosts..."
     # Grepping only 0.0.0.0 starting lines for security reasons.
     curl -s "$adblock" | grep ^'0.0.0.0 ' > "$blockdir"/adblock.block
 }
 
 block() {
-    echo "Blocking adds... "
+    echo "Blocking advertisements... "
     for i in "$blockdir"/*.unblock
     do
         mv "$f" "${f%.unblock}.block" 2> /dev/null
@@ -26,7 +27,7 @@ block() {
 }
 
 unblock() {
-    echo "Unblocking adds... "
+    echo "Unblocking advertisements... "
     for i in "$blockdir"/*.block
     do
         mv "$f" "${f%.block}.unblock" 2> /dev/null
