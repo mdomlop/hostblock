@@ -1,23 +1,24 @@
 # Maintainer: Manuel Domínguez López <mdomlop at gmail dot com>
 
 _pkgver_year=2017
-_pkgver_month=05
-_pkgver_day=01
+_pkgver_month=01
+_pkgver_day=08
 
 _gitname=hostblock
 pkgname=${_gitname}-git
 pkgver=41
 pkgrel=1
 pkgdesc="A adblock system based on /etc/hosts."
-arch=('any')
 url="https://github.com/mdomlop/${_gitname}"
 source=("git+https://github.com/mdomlop/${_gitname}.git")
+arch=('any')
+md5sums=('SKIP')
 license=('GPL3')
 depends=('curl')
+makedepends=('git')
+provides=(${_gitname})
 conflicts=(${_gitname})
 changelog=ChangeLog
-
-md5sums=('SKIP')
 
 pkgver() {
   cd ${srcdir}/${_gitname}
@@ -26,5 +27,5 @@ pkgver() {
 
 package() {
     cd "${srcdir}/${_gitname}"
-    make DESTDIR=${pkgdir} install
+    make install DESTDIR=${pkgdir}
 }
