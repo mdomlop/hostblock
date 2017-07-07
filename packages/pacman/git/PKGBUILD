@@ -18,7 +18,6 @@ depends=('curl')
 makedepends=('git')
 provides=(${_gitname})
 conflicts=(${_gitname})
-changelog=ChangeLog
 
 pkgver() {
   cd ${srcdir}/${_gitname}
